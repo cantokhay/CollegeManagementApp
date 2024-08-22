@@ -1,0 +1,34 @@
+dotnet new mvc -o "-PROJECT--NAME--HERE-"  //without making directory
+
+"{IN PROJECT DIRECTORY}" dotnet new mvc
+
+"{IN PROJECT DIRECTORY}"  dotnet new gitignore
+
+c:\Users\PC docker pull mcr.microsoft.com/mssql/server   veya :2019-latest
+
+c:\Users\PC docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Str0ngPas$$w0rd' -p 1400:1433 -d mcr.microsoft.com/mssql/server   veya :2019-latest
+
+/* ADDED TO Program.cs
+var conn = builder.Configuration.GetConnectionString("SchoolManagementDbConnection");
+builder.Services.AddDbContext<SchoolManagementDbContext>(options => options.UseSqlServer(conn)); */
+
+/* ADDED TO appsettings.json
+"ConnectionStrings" : {
+    "SchoolManagementDbConnection" : "Server=localhost,1400;Database=SchoolManagementDb;Trusted_Connection=false;MultipleActiveResultSets=true;Encrypt=false;User ID=sa;Password=Str0ngPas$$w0rd;"
+  }, */
+
+"{IN PROJECT DIRECTORY}" dotnet add package Microsoft.EntityFrameworkCore.SqlServer 
+
+"{IN PROJECT DIRECTORY}" dotnet add package Microsoft.EntityFrameworkCore.Design
+
+"{IN PROJECT DIRECTORY}" dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+"{IN PROJECT DIRECTORY}" dotnet tool install --global dotnet-ef
+
+"{IN PROJECT DIRECTORY}" dotnet ef dbcontext scaffold "Server=localhost,1400;Database=SchoolManagementDb;Trusted_Connection=false;MultipleActiveResultSets=true;Encrypt=false;User ID=sa;Password=Str0ngPas$$w0rd;" Microsoft.EntityFrameworkCore.SqlServer -o Data -f --no-onconfiguring
+
+"{IN PROJECT DIRECTORY}" dotnet tool install -g dotnet-aspnet-codegenerator    
+
+"{IN PROJECT DIRECTORY}" dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+"{IN PROJECT DIRECTORY}" dotnet aspnet-codegenerator controller -name CoursesController -m Course -dc SchoolManagementDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries -f
