@@ -31,4 +31,4 @@ builder.Services.AddDbContext<SchoolManagementDbContext>(options => options.UseS
 
 "{IN PROJECT DIRECTORY}" dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
-"{IN PROJECT DIRECTORY}" dotnet aspnet-codegenerator controller -name CoursesController -m Course -dc SchoolManagementDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries -f
+"{IN PROJECT DIRECTORY}" dotnet aspnet-codegenerator controller -name EnrollmentsController -m Enrollment -dc SchoolManagementDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries -f

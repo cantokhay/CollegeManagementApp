@@ -1,40 +1,40 @@
-@model IEnumerable<CollegeManagementApp.Data.Student>
+@model IEnumerable<CollegeManagementApp.Data.Enrollment>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Students List</h1>
+<h1>Enrollments List</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a asp-action="Create" class="btn btn-success"> + Create New</a>
 </p>
 <table class="table table-striped">
     <thead>
         <tr>
             <th class="text-start">
-                @Html.DisplayNameFor(model => model.FirstName)
+                @Html.DisplayNameFor(model => model.Grade)
             </th>
             <th class="text-start">
-                @Html.DisplayNameFor(model => model.LastName)
+                @Html.DisplayNameFor(model => model.Class)
             </th>
             <th class="text-start">
-                @Html.DisplayNameFor(model => model.DateOfBirth)
+                @Html.DisplayNameFor(model => model.Student)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model) {
         <tr>
             <td class="text-start">
-                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(modelItem => item.Grade)
             </td>
             <td class="text-start">
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.Class.Id)
             </td>
             <td class="text-start">
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
+                @Html.DisplayFor(modelItem => item.Student.Id)
             </td>
             <td class="col-md-3">
                 <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
@@ -42,12 +42,12 @@
                 <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">Delete</button>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
 
-<form asp-action="Delete" id="courseDeleteForm">
-    <input type="hidden" id="courseid" name="Id" />
+<form asp-action="Delete" id="enrollmentDeleteForm">
+    <input type="hidden" id="enrollmentid" name="Id" />
 </form>
 
 @section Scripts {
@@ -73,8 +73,8 @@
                             })
                             var btn = $(this);
                             var id = btn.data("id");
-                            $('#courseid').val(id);
-                            $('#courseDeleteForm').submit();
+                            $('#enrollmentid').val(id);
+                            $('#enrollmentDeleteForm').submit();
                         }
                     })
                 })
