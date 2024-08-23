@@ -48,17 +48,17 @@ public partial class SchoolManagementDbContext : DbContext
 
         modelBuilder.Entity<Enrollment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Enrollme__3214EC0761207A50");
+            entity.HasKey(e => e.Id).HasName("PK__Enrollme__3214EC0779F7BF84");
 
             entity.Property(e => e.Grade).HasMaxLength(2);
 
             entity.HasOne(d => d.Class).WithMany(p => p.Enrollments)
                 .HasForeignKey(d => d.ClassId)
-                .HasConstraintName("FK__Enrollmen__Class__3B75D760");
+                .HasConstraintName("FK__Enrollmen__Class__4222D4EF");
 
             entity.HasOne(d => d.Student).WithMany(p => p.Enrollments)
                 .HasForeignKey(d => d.StudentId)
-                .HasConstraintName("FK__Enrollmen__Stude__3A81B327");
+                .HasConstraintName("FK__Enrollmen__Stude__412EB0B6");
         });
 
         modelBuilder.Entity<Lecturer>(entity =>

@@ -13,7 +13,7 @@ public partial class Enrollment
 
     public string? Grade { get; set; }
 
-    public virtual Course? Class { get; set; }
+    public virtual Class? Class { get; set; }
 
     public virtual Student? Student { get; set; }
 }

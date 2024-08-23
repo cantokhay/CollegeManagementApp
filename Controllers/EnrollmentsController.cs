@@ -48,7 +48,7 @@ namespace CollegeManagementApp.Controllers
         // GET: Enrollments/Create
         public IActionResult Create()
         {
-            ViewData["ClassId"] = new SelectList(_context.Courses, "Id", "Id");
+            ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id");
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id");
             return View();
         }
@@ -66,7 +66,7 @@ namespace CollegeManagementApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClassId"] = new SelectList(_context.Courses, "Id", "Id", enrollment.ClassId);
+            ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id", enrollment.ClassId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", enrollment.StudentId);
             return View(enrollment);
         }
@@ -84,7 +84,7 @@ namespace CollegeManagementApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClassId"] = new SelectList(_context.Courses, "Id", "Id", enrollment.ClassId);
+            ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id", enrollment.ClassId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", enrollment.StudentId);
             return View(enrollment);
         }
@@ -121,7 +121,7 @@ namespace CollegeManagementApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClassId"] = new SelectList(_context.Courses, "Id", "Id", enrollment.ClassId);
+            ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id", enrollment.ClassId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", enrollment.StudentId);
             return View(enrollment);
         }

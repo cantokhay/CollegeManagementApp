@@ -36,11 +36,11 @@
             <td class="text-start">
                 @Html.DisplayFor(modelItem => item.Student.Id)
             </td>
-            <td class="col-md-3">
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> 
-                <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">Delete</button>
-            </td>
+                <td class="col-md-3">
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">Delete</button>
+                </td>
         </tr>
         }
     </tbody>
@@ -52,10 +52,10 @@
 
 @section Scripts {
     <script>
-        $(function(){
+        $(function () {
             $('.table').DataTable();
 
-            $('.deleteBtn').click(function(e){
+            $('.deleteBtn').click(function (e) {
                 Swal.fire({
                     title: "Are you sure?",
                     text: "You won't be able to revert this!",
@@ -64,20 +64,20 @@
                     confirmButtonColor: "#11470d",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Yes, delete it!"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
                             title: "Deleted!",
                             text: "Your file has been deleted.",
                             icon: "success"
-                            })
-                            var btn = $(this);
-                            var id = btn.data("id");
-                            $('#enrollmentid').val(id);
-                            $('#enrollmentDeleteForm').submit();
-                        }
-                    })
+                        })
+                        var btn = $(this);
+                        var id = btn.data("id");
+                        $('#enrollmentid').val(id);
+                        $('#enrollmentDeleteForm').submit();
+                    }
                 })
             })
+        })
     </script>
 }
