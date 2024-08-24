@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var fullNameOfLecturer = "";
 }
 
 <h1>Classes List</h1>
@@ -27,6 +28,7 @@
     <tbody>
         @foreach (var item in Model)
         {
+            fullNameOfLecturer = item.Lecturer.FirstName + " " + item.Lecturer.LastName;
             <tr>
                 <td class="text-start">
                     @Html.DisplayFor(modelItem => item.Time)
@@ -35,7 +37,7 @@
                     @Html.DisplayFor(modelItem => item.Course.Name)
                 </td>
                 <td class="text-start">
-                    @Html.DisplayFor(modelItem => item.Lecturer.FirstName)
+                    @Html.DisplayFor(modelItem => fullNameOfLecturer)
                 </td>
                 <td class="col-md-3">
                     <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>

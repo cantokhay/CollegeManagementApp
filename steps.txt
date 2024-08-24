@@ -32,3 +32,6 @@ builder.Services.AddDbContext<SchoolManagementDbContext>(options => options.UseS
 "{IN PROJECT DIRECTORY}" dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
 "{IN PROJECT DIRECTORY}" dotnet aspnet-codegenerator controller -name EnrollmentsController -m Enrollment -dc SchoolManagementDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries -f
+
+Auth0 package:
+"{IN PROJECT DIRECTORY}" dotnet add package Auth0.AspNetCore.Authentication

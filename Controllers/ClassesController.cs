@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using CollegeManagementApp.Data;
 
 namespace CollegeManagementApp.Controllers
 {
+    [Authorize]
     public class ClassesController : Controller
     {
         private readonly SchoolManagementDbContext _context;
